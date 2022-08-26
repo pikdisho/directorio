@@ -1,0 +1,9 @@
+NOTAS CLASE 2 6/8
+
+dir (abre directorio)
+cd (cambiar eirectorio) ej: cd Documentos
+cd .. (volver hacia atras)
+code (abrir vs)
+mkdir crear directorio ej mkdir Curso
+
+guardar siempre antes de ejecutar
