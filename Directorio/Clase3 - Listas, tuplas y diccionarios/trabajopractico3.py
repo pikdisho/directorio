@@ -8,6 +8,8 @@ def ejerciciostp3(ejercicioelegido):
             ejercicio1()
         case 2:
             ejercicio2()
+        case 3:
+            ejercicio3()
 
 
 # 1) Meter los números del 1 al 20 en una lista y mostrarla en pantalla. Hacer lo mismo para
@@ -62,7 +64,31 @@ def ejercicio3():
 
     listapunto3 = []
     cadenapunto3 = input('Ingrese una palabra o frase: ')
-    listapunto3.append
+    listapunto3.append(cadenapunto3)
+    print
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
