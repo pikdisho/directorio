@@ -64,8 +64,9 @@ def ejercicio3():
 
     listapunto3 = []
     cadenapunto3 = input('Ingrese una palabra o frase: ')
-    listapunto3.append(cadenapunto3)
-    print
+    
+    for letras in range(len(cadenapunto3)):
+        lista
 
 
 
