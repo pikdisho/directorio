@@ -2,13 +2,13 @@
 # Para simplificarlo vamos a suponer que febrero tiene 28 dias. Usar diccionarios
 
 
-# meselegido = int(input('Ingrese un número de mes (1-12): '))-1
-# diccionario_de_meses = {
-#     'meses': ['Enero', 'Febrero', 'Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
-#     'duraciondelmes': [31,28,30,31,31,31,31,31,31,31,31,31]
-#     }
+meselegido = int(input('Ingrese un número de mes (1-12): '))-1
+diccionario_de_meses = {
+    'meses': ['Enero', 'Febrero', 'Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+    'duraciondelmes': [31,28,30,31,31,31,31,31,31,31,31,31]
+    }
     
-# print('El nombre del mes elegido es', diccionario_de_meses['meses'][meselegido] ,'y tiene', diccionario_de_meses['duraciondelmes'][meselegido], 'dias')
+print('El nombre del mes elegido es', diccionario_de_meses['meses'][meselegido] ,'y tiene', diccionario_de_meses['duraciondelmes'][meselegido], 'dias')
 
 
 # -------------------------------------------------------------------------------------------------------------------------
