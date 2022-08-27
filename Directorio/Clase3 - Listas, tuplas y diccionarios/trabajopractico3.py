@@ -148,6 +148,7 @@ def ejercicio7():
     posiblemayor = 0
     posiblemenor = 0
 
+    print(tuplaconmuchosnumeros)
     for numeros in tuplaconmuchosnumeros:
         if (numeros>posiblemayor):
             posiblemayor = numeros
