@@ -1,5 +1,4 @@
 from ast import Str, match_case
-from asyncio.base_subprocess import ReadSubprocessPipeProto
 import time
 
 def ejerciciostp3(ejercicioelegido):
@@ -19,6 +18,10 @@ def ejerciciostp3(ejercicioelegido):
             ejercicio6()
         case 7:
             ejercicio7()
+        case 8:
+            ejercicio8()
+        case 9:
+            ejercicio9()
 
 
 
@@ -160,7 +163,7 @@ def ejercicio8():
     print('Ejercicio 8')
     time.sleep(1)
 
-    print('Work in progress')
+    print('Work in progress, leyendo diccionarios...')
 
 # 9) Escribir un programa que vaya solicitando al usuario que ingrese nombres.
 # - Si el nombre se encuentra en la agenda (implementada con un diccionario), debe
@@ -172,7 +175,7 @@ def ejercicio9():
     print('Ejercicio 9')
     time.sleep(1)
 
-    print('Work in progress')
+    print('Work in progress, pedimos disculpas')
 
 
 
@@ -194,7 +197,7 @@ def ejercicio9():
 
 
 while True:
-    ejercicioelegido = int(input('Por favor, escriba el número del ejercicio que desea ejecutar (1-12): '))
+    ejercicioelegido = int(input('Por favor, escriba el número del ejercicio que desea ejecutar (1-9): '))
     ejerciciostp3(ejercicioelegido)
     repetir = input('¿Desea revisar otro ejercicio? (Y/N): ')
     if repetir == 'N' or repetir == 'n':
