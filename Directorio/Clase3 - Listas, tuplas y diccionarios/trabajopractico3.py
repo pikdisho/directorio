@@ -178,24 +178,6 @@ def ejercicio9():
     print('Work in progress, pedimos disculpas')
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 while True:
     ejercicioelegido = int(input('Por favor, escriba el número del ejercicio que desea ejecutar (1-9): '))
     ejerciciostp3(ejercicioelegido)
