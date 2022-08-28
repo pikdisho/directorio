@@ -143,11 +143,12 @@ def ejercicio6():
 def ejercicio7():
     print('Ejercicio 7')
     time.sleep(1)
+    
+    tuplaconmuchosnumeros = (1,5,7,8,9,6,20,15,50,70,90,60,30,50,55,66,91,100,200)
+    posiblemayor = tuplaconmuchosnumeros[0]
+    posiblemenor = tuplaconmuchosnumeros[0]
 
-    tuplaconmuchosnumeros = (1,5,7,8,9,6,20,15,50,70,90,60,30,50,55,66,91,100,200,0)
-    posiblemayor = 0
-    posiblemenor = 0
-
+    print(tuplaconmuchosnumeros)
     for numeros in tuplaconmuchosnumeros:
         if (numeros>posiblemayor):
             posiblemayor = numeros
@@ -164,6 +165,9 @@ def ejercicio8():
     time.sleep(1)
 
     print('Work in progress, leyendo diccionarios...')
+
+    
+
 
 # 9) Escribir un programa que vaya solicitando al usuario que ingrese nombres.
 # - Si el nombre se encuentra en la agenda (implementada con un diccionario), debe
