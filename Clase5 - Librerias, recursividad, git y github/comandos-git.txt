@@ -1,0 +1,29 @@
+Obteniendo y creando proyectos
+
+init
+Inicializa un directorio con o sin contenido como un nuevo repositorio Git.
+    git init
+
+clone
+Hace una copia local un repositorio para que puedas tener acceso a él, tanto visualizarlo como modificarlo.
+
+git clone [<url>]
+
+
+Haciendo instantáneas
+
+El staging area (área de preparación) es un archivo de tu directorio Git, en él se encuentra qué información estará en el próximo commit. 
+A veces, nos referimos a él como el "índice". El flujo de trabajo básico en Git es algo como:
+    Modificas archivos en tu directorio de trabajo.
+    Añades instantáneas de lo archivos a tu área de preparación.
+    Haces commit, que toma los archivos como están en el área de preparación y guarda esa instantánea permanentemente en tu directorio Git.
+
+Una versión particular de un archivo puede estar commited (está en el repositorio), staged (está en el staging area pero no se le ha hecho commit) o modificada 
+(tiene cambios pero no ha sido añadido al staging area).
+
+add
+Añade ficheros al staging area. Añades un archivo cuando quieres incluir los cambios que has hecho a tu próximo commit. Aquello que hayas modificado pero no añadido, 
+no será incluido en el commit
+    git add <ficheros>   añade la lista de ficheros separados por un espacio.
+    git add .   añade recursivamente todos los archivos desde el directorio actual.
+    git add *   añade todos los archivos en el directorio actual, no recursivo.
