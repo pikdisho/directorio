@@ -1,0 +1,6 @@
+Creamos una carpeta y abrimos el directorio en Powershell o cmd. 
+
+git init para inicializar un repositorio vacio.
+git status para ir checkeando el estado de los cambios 
+git add '.\Clase5 - Git, Github\' para añadir un archivo a commitear
+git commit -m 'Mensaje para la descripcion del cambio'
