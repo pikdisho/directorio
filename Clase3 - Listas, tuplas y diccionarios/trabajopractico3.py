@@ -189,33 +189,3 @@ while True:
     if repetir == 'N' or repetir == 'n':
         print('Hasta la próxima, que le vaya bien')
         break
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
