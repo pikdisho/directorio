@@ -5,4 +5,6 @@ git status para ir checkeando el estado de los cambios
 git add '.\Clase5 - Git, Github\' para añadir un archivo al staging area
 git commit -m 'Mensaje para la descripcion del cambio'
 git remote add origin https://github.com/pikdisho/clases-programacion.git
+git push -u origin master
 
+git clone https://github.com/pikdisho/directorio.git para poder clonar repositorios en una ruta especificada
