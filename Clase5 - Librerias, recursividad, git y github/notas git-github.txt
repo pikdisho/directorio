@@ -8,3 +8,4 @@ git remote add origin https://github.com/pikdisho/clases-programacion.git
 git push -u origin master
 
 git clone https://github.com/pikdisho/directorio.git para poder clonar repositorios en una ruta especificada
+
