@@ -1,0 +1,21 @@
+La experiencia del usuario es la forma en que una persona, el usuario, se siente cuando 
+interactúa con un producto o lo experimenta.
+
+Un producto puede ser un bien, un servicio o una función.
+
+Para que un usuario tenga una buena experiencia, el producto debe ser fácil de usar, 
+equitativo, agradable y útil.
+
+    1 - En primer lugar, la experiencia del usuario tiene que ver con mejorar el uso de un producto o hacer que sea más fácil de usar. Para ello, el diseño, la estructura 
+y la finalidad del producto deben estar claros para todos.
+
+    2 - Los diseñadores de UX deben pensar en cada persona que podría usar el producto. Esto podría incluir a personas con discapacidad o que viven en condiciones muy diferentes a las del diseñador. Por ejemplo, a algunos usuarios les resultan 
+fáciles de usar las aplicaciones con mucho texto. En cambio, un usuario que padece un deterioro visual podría preferir los sonidos.
+Tener en cuenta las necesidades únicas de muchas personas diferentes es muy importante, y es clave que el diseño sea equitativo. Que un diseño sea equitativo significa que sea útil y accesible para personas 
+con diversas capacidades y antecedentes.
+
+    3 -  La experiencia del usuario también tiene que ver con que las cosas sean agradables de usar, lo que crea una conexión positiva entre el usuario y el producto. Para fomentar esa conexión, los diseñadores de UX tienen en 
+cuenta lo que piensa y siente el usuario a la hora de crear un producto.
+
+    4 = Como seres humanos, queremos productos útiles que resuelven nuestros problemas. Por ejemplo, si estás perdido, una aplicación de mapas que te dice cómo volver a casa es útil. 
+Pero, si la aplicación no encuentra tu ubicación actual, ya no es tan útil.
