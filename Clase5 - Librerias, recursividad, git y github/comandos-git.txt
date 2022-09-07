@@ -1,0 +1,68 @@
+Obteniendo y creando proyectos
+
+init
+Inicializa un directorio con o sin contenido como un nuevo repositorio Git.
+    git init
+
+clone
+Hace una copia local un repositorio para que puedas tener acceso a él, tanto visualizarlo como modificarlo.
+
+git clone [<url>]
+
+
+Haciendo instantáneas
+
+El staging area (área de preparación) es un archivo de tu directorio Git, en él se encuentra qué información estará en el próximo commit. 
+A veces, nos referimos a él como el "índice". El flujo de trabajo básico en Git es algo como:
+    Modificas archivos en tu directorio de trabajo.
+    Añades instantáneas de lo archivos a tu área de preparación.
+    Haces commit, que toma los archivos como están en el área de preparación y guarda esa instantánea permanentemente en tu directorio Git.
+
+Una versión particular de un archivo puede estar commited (está en el repositorio), staged (está en el staging area pero no se le ha hecho commit) o modificada 
+(tiene cambios pero no ha sido añadido al staging area).
+
+add
+Añade ficheros al staging area. Añades un archivo cuando quieres incluir los cambios que has hecho a tu próximo commit. Aquello que hayas modificado pero no añadido, 
+no será incluido en el commit
+    git add <ficheros>   añade la lista de ficheros separados por un espacio.
+    git add .   añade recursivamente todos los archivos desde el directorio actual.
+    git add *   añade todos los archivos en el directorio actual, no recursivo.
+
+status
+Ver el estado de tus archivos en el directorio de trabajo y en el staging area.
+    git status
+    git status -s   te dará cada entrada de manera más reducida
+
+diff
+Muestra la diferencia entre lo que está añadido (staged) y aquello que ha sido modificado pero no añadido. Muestra la diferencia línea por línea.
+    git diff   muestra el diff de los cambios no añadidos (unstaged) y el último commit
+    git diff --cached   muestra el diff de cambios añadidos y el último commit
+    git diff HEAD   muestra el diff de todos los cambios de archivos, tanto añadidos o no, con el último commit
+    git diff --stat   con esta opción se muestra un resumen de los cambios en lugar de la versión completa
+
+commit
+Guarda una instantánea del staging area, se modifica el repositorio local.
+    git commit -a '<message>'    la opción -m permite agregar un mensaje que describa al commit. Su
+    uso es canónico.
+    git commit -a   hace commit de los archivos en los que ya se hizo un commit sin tener que pasar por
+    la etapa de staging
+    git commit -a '<message> #<num_issue>'    mensaje que hace referencia a un issue
+
+reset
+Deshace cambios y commits. Resetea el HEAD (último commit de la rama actual) al estado especificado.
+    git reset [<commit>] [--] <files>   Copia el estado de las entradas de commit en el staging area. Si
+    no especificamos el commit, se toma por defecto HEAD (el último commit).
+    git reset HEAD [--] <files>  Copia el estado de las entradas de HEAD en el staging area, es lo contrario
+    de hacer  git add files, (hace un "unstage"). Los archivos en tu copia local no se ven afectados. 
+    git reset --soft <commit>    resetea el HEAD al commit especificado, no afecta al staging area. 
+    git reset --hard <commit>    resetea el HEAD al commit especificado y revierte todos los cambios en
+    el directorio a ese commit.
+
+rm
+Elimina archivos del staging area
+    git rm <files>   elimina el archivo del staging area por completo junto al de tu directorio. 
+    git rm --cached <files>   elimina el archivo del staging area y deja el archivo de tu directorio sin verse afectado.
+
+mv
+Renombra archivos en tu repositorio. No es necesario, pues Git puede darse cuenta por comparaciones de qué archivos han sido renombrados. Sin embargo el comando existe y lo que hace es un git rm --cached, renombra en disco y luego usa git add con el nuevo archivo.
+   git mv <name> <new_name> 
