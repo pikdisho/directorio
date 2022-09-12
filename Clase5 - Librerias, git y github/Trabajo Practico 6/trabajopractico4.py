@@ -3,13 +3,13 @@
 # decimales que redondee el resultado haciendo uso de la función
 # redondear() del paquete recién creado
 
-# from funciones_posiblemente_utiles import redondear
+from funciones_posiblemente_utiles import redondear
 
-# def sumadenumerosdecimales():
-#     numerodecimal1 = float(input('Introduzca el primer numero decimal a sumar: '))
-#     numerodecimal2 = float(input('Introduzca el segundo numero decimal a sumar: '))
-#     sumadecimal = redondear(numerodecimal1+numerodecimal2)
-#     print('→ El resultado de la suma redondeada es:', sumadecimal)
+def sumadenumerosdecimales():
+    numerodecimal1 = float(input('Introduzca el primer numero decimal a sumar: '))
+    numerodecimal2 = float(input('Introduzca el segundo numero decimal a sumar: '))
+    sumadecimal = redondear(numerodecimal1+numerodecimal2)
+    print('→ El resultado de la suma redondeada es:', sumadecimal)
 
 # sumadenumerosdecimales()
 
@@ -17,10 +17,10 @@
 # y hora actuales del sistema.
 
 from datetime import date, time, datetime
-from re import A
 
-# datosfecha = datetime.now()
-# print('→', datosfecha.strftime('Hoy es %A %d de %B de %Y. La hora actual del sistema es %H:%M:%S.'))
+def fecha():
+    datosfecha = datetime.now()
+    print('→', datosfecha.strftime('Hoy es %A %d de %B de %Y. La hora actual del sistema es %H:%M:%S.'))
 
 # → Fuente: https://aprendeconalf.es/docencia/python/manual/datetime/
 
@@ -30,26 +30,26 @@ from re import A
 
 import os
 import random
-import re
 import time
 
-# def funcionaleatoriopar():
-#     while True:
-#         numeroaleatorio = random.randint(1,10)   
-#         if (numeroaleatorio%2 == 0):
-#             return(numeroaleatorio)
-#         else:
-#             numeroaleatorio = random.randint(1,10)
+def funcionaleatoriopar():
+    while True:
+        numeroaleatorio = random.randint(1,10)   
+        if (numeroaleatorio%2 == 0):
+            return(numeroaleatorio)
+        else:
+            numeroaleatorio = random.randint(1,10)
 
-# mensaje = 'Generando numero aleatorio par'
+def aleatoriopar():
+    mensaje = 'Generando numero aleatorio par'
 
-# for i in range (0,4):
-#     os.system('cls')
-#     print(mensaje)
-#     mensaje += '.'
-#     time.sleep(1)
+    for i in range (0,4):
+        os.system('cls')
+        print(mensaje)
+        mensaje += '.'
+        time.sleep(1)
     
-# print('→ Ha salido el', funcionaleatoriopar())
+    print('→ Ha salido el', funcionaleatoriopar())
 
 # 5. Bola mágica: La bola mágica (Magic 8 ball) es un popular juguete usado
 # para la adivinación o para buscar consejo. Su mecanismo es muy simple:
@@ -69,7 +69,7 @@ def bolamagica():
 
     os.system('cls')
     repetir = ''
-    while (repetir != 'n'):
+    while (repetir.lower != 'n'):
         print('→ BIENVENIDO A LA BOLA MAGICA ←')
 
         lista_de_respuestas = ['Es seguro que sí', 'Las chances son buenas', 'Puedes contar con ello', 'Pregúntame de nuevo más tarde', 'Concéntrate y pregunta de nuevo', 'No veo con claridad, intenta de nuevo', 'Mi respuesta es no', 'Mis fuentes me dicen que no']
@@ -83,6 +83,6 @@ def bolamagica():
 
     print('La bola magica se despide.')
     time.sleep(1)      
-    
+
 bolamagica()
 
