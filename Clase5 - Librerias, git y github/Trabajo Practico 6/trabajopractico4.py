@@ -138,4 +138,3 @@ def diasdesdenacimiento():
     #print('Desde que nacio han pasado',  ,'dias')
 
 diasdesdenacimiento()
->>>>>>> 20b30521884f248db94d66ea32c229103fc66127
