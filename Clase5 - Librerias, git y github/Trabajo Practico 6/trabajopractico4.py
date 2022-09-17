@@ -150,8 +150,7 @@ def diasdesdenacimiento():
         dias_totales+=1
     if (anio%4==0):
         dias_totales+=1
-
-    
+   
     print('Desde que naciste pasaron', dias_totales ,'dias')
 
 diasdesdenacimiento()
