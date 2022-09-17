@@ -9,3 +9,4 @@ def redondear(numeroaredondear):
         return(int(numeroaredondear))
     else:
         return(int((numeroaredondear)+1))
+        
