@@ -69,10 +69,10 @@ def bolamagica():
 
     os.system('cls')
     repetir = ''
-    while (repetir.lower != 'n'):
-        print('→ BIENVENIDO A LA BOLA MAGICA ←')
+    lista_de_respuestas = ['Es seguro que sí', 'Las chances son buenas', 'Puedes contar con ello', 'Pregúntame de nuevo más tarde', 'Concéntrate y pregunta de nuevo', 'No veo con claridad, intenta de nuevo', 'Mi respuesta es no', 'Mis fuentes me dicen que no']
 
-        lista_de_respuestas = ['Es seguro que sí', 'Las chances son buenas', 'Puedes contar con ello', 'Pregúntame de nuevo más tarde', 'Concéntrate y pregunta de nuevo', 'No veo con claridad, intenta de nuevo', 'Mi respuesta es no', 'Mis fuentes me dicen que no']
+    while (True):
+        print('→ BIENVENIDO A LA BOLA MAGICA ←')
 
         print('Escribe tu pregunta... ')
         input('→ ')
@@ -80,9 +80,58 @@ def bolamagica():
         print(lista_de_respuestas[random.randint(0,7)])
 
         repetir = (input('→ Desea jugar otra vez? (Y/N): '))
-
+        if (repetir=='n' or repetir=='N'): #if repetir.lower=='n': no funciona?
+            break
+        
     print('La bola magica se despide.')
     time.sleep(1)      
 
-bolamagica()
+# bolamagica()
 
+# 6. Encuentre el tiempo de ejecución de los programas de los ejercicios
+# anteriores (pista: use el módulo time)
+
+
+
+# 7. (Opcional) Sorteo: Escriba un programa que simule un sorteo donde
+# toman uno o más papeles al azar de un pozo para elegir los ganadores.
+
+def sorteo():
+    os.system('cls')
+    print('→ BIENVENIDO AL SORTEADOR ←')
+    cantidad_ganadores = int(input('INGRESE LA CANTIDAD DE GANADORES: '))
+    cantidad_numeros = int(input('INGRESE LA CANTIDAD DE NUMEROS VENDIDOS: '))
+
+    for ganadores in range(1, cantidad_ganadores+1):
+        print('→ El', str(ganadores)+'°', 'premio es para el numero', random.randint(0,cantidad_numeros))
+
+# sorteo()
+    
+# 8. (Opcional) Escriba una función que pida al usuario ingresar su fecha de
+# nacimiento y sea capaz de devolver la cantidad de días desde su
+# nacimiento hasta hoy.
+
+def diasdesdenacimiento():
+    os.system('cls')
+    fecha_actual = datetime.now()
+    fecha_nacimiento=input('Ingrese su fecha de nacimiento(DD-MM-YYYY): ')
+    
+    anio=int(fecha_nacimiento[6:10])
+    mes=int(fecha_nacimiento[3:5])
+    dia=int(fecha_nacimiento[0:2])
+
+    cantidad_anios_bisiestos = 0
+    dias_totales=0
+    
+
+    for aniorecorrido in range (anio+1, int(fecha_actual.strftime('%Y'))):
+        if aniorecorrido%4==0:
+            cantidad_anios_bisiestos +=1
+
+    dias_anio_actual = 
+    dias_totales = 366*cantidad_anios_bisiestos + (int(fecha_actual.strftime('%Y')) - anio - cantidad_anios_bisiestos)*365
+    print(dias_totales)
+
+    #print('Desde que nacio han pasado',  ,'dias')
+
+diasdesdenacimiento()
