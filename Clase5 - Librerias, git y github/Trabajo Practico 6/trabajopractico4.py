@@ -114,12 +114,17 @@ def sorteo():
 def diasdesdenacimiento():
     os.system('cls')
     fecha_actual = datetime.now()
-    fecha_nacimiento=input('Ingrese su fecha de nacimiento(DD-MM-YYYY): ')
-    
-    anio=int(fecha_nacimiento[6:10])
-    mes_nacimiento=int(fecha_nacimiento[3:5])
-    dia_nacimiento=int(fecha_nacimiento[0:2])
 
+    while True:
+        try:
+            fecha_nacimiento=input('Ingrese su fecha de nacimiento(DD-MM-YYYY): ')
+            anio=int(fecha_nacimiento[6:10])
+            mes_nacimiento=int(fecha_nacimiento[3:5])
+            dia_nacimiento=int(fecha_nacimiento[0:2])
+            break
+        except ValueError:
+            print('→ ERROR: FORMATO DE FECHA INCORRECTO')
+    
     anio_actual = int(fecha_actual.strftime('%Y'))
     mes_actual = int(fecha_actual.strftime('%m'))
     dia_actual = int(fecha_actual.strftime('%d'))
