@@ -18,9 +18,6 @@ def sumadenumerosdecimales():
 
 from datetime import date, time, datetime
 
-<<<<<<< HEAD
-
-=======
 def fecha():
     datosfecha = datetime.now()
     print('→', datosfecha.strftime('Hoy es %A %d de %B de %Y. La hora actual del sistema es %H:%M:%S.'))
@@ -120,21 +117,41 @@ def diasdesdenacimiento():
     fecha_nacimiento=input('Ingrese su fecha de nacimiento(DD-MM-YYYY): ')
     
     anio=int(fecha_nacimiento[6:10])
-    mes=int(fecha_nacimiento[3:5])
-    dia=int(fecha_nacimiento[0:2])
+    mes_nacimiento=int(fecha_nacimiento[3:5])
+    dia_nacimiento=int(fecha_nacimiento[0:2])
+
+    anio_actual = int(fecha_actual.strftime('%Y'))
+    mes_actual = int(fecha_actual.strftime('%m'))
+    dia_actual = int(fecha_actual.strftime('%d'))
+
+    cantidad_de_dias_meses=[0,31,28,31,30,31,30,31,31,30,31,30,31]
 
     cantidad_anios_bisiestos = 0
-    dias_totales=0
-    
 
-    for aniorecorrido in range (anio+1, int(fecha_actual.strftime('%Y'))):
+    dias_anio_actual = 0
+    dias_anio_nacimiento = 0
+    dias_totales=0
+
+    for aniorecorrido in range (anio+1, anio_actual-1):
         if aniorecorrido%4==0:
             cantidad_anios_bisiestos +=1
+    
+    for mesrecorrido in range (0,mes_actual):
+        dias_anio_actual += cantidad_de_dias_meses[mesrecorrido]
+    dias_anio_actual += dia_actual
 
-    dias_anio_actual = 
-    dias_totales = 366*cantidad_anios_bisiestos + (int(fecha_actual.strftime('%Y')) - anio - cantidad_anios_bisiestos)*365
-    print(dias_totales)
+    for mesrecorrido in range (mes_nacimiento,12+1):
+        dias_anio_nacimiento += cantidad_de_dias_meses[mesrecorrido]
+    dias_anio_nacimiento -= dia_nacimiento
 
-    #print('Desde que nacio han pasado',  ,'dias')
+    dias_totales = dias_anio_actual + dias_anio_nacimiento + 366*cantidad_anios_bisiestos + ((anio_actual-1) - anio - cantidad_anios_bisiestos)*365
+   
+    if (anio_actual%4==0):
+        dias_totales+=1
+    if (anio%4==0):
+        dias_totales+=1
+
+    
+    print('Desde que naciste pasaron', dias_totales ,'dias')
 
 diasdesdenacimiento()
