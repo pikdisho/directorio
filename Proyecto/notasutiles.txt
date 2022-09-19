@@ -1,0 +1,23 @@
+→ https://www.youtube.com/watch?v=mQ0IUy_18mI
+
+Creamos un ambiente virtual para instalar ahi solo las versiones y todas las extensiones que usaremos SOLO EN ESTE PROYECTO.
+→ pip install virtual env
+→ virtualenv env
+Entramos a la carpeta env y activamos con → activate
+
+Creamos un archivo .gitignore y copiamos lo que esta ya hecho en github. Es para ignorar los archivos dentro de \env y evitar
+que se suban a github
+
+Creamos un archivo llamado requirements.txt en el que escribiremos todo lo que vayamos a usar para controlar las versiones
+y despues poder instalar todo lo necesario en otra pc con
+→ pip install -r requirements.txt
+
+En la terminal de comandos introducimos
+→ django-admin startproject core .
+core puede ser cambiado por otro nombre
+para poder iniciar nuestro proyecto de django y que se creen los archivos necesarios
+
+Con → python manage.py runserver podemos iniciar el servidor para comprobar si la configuracion inicial es correcta
+
+con → python manage.py migrate par agregar todos los datos como admin
+
