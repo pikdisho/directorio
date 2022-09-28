@@ -19,3 +19,20 @@ cuenta lo que piensa y siente el usuario a la hora de crear un producto.
 
     4 = Como seres humanos, queremos productos útiles que resuelven nuestros problemas. Por ejemplo, si estás perdido, una aplicación de mapas que te dice cómo volver a casa es útil. 
 Pero, si la aplicación no encuentra tu ubicación actual, ya no es tan útil.
+
+
+El ciclo de desarrollo de un producto
+
+El ciclo de desarrollo de un producto es el proceso que consiste en transformar una idea en realidad
+
+-La primera etapa es una lluvia de ideas. Es una etapa de descubrimiento activo cuyo objetivo es generar ideas 
+sobre el usuario y sus posibles necesidades o desafíos.
+
+-La segunda etapa del ciclo de desarrollo es la definición. En esta etapa, se usan los hallazgos de la lluvia de ideas para enfocar el proceso. En la etapa de definición, el equipo identifica formas concretas en las que el producto afectará al usuario. Como diseñador de UX, empezarás a analizar detalles específicos del
+producto, a quién está destinado, qué debería hacer y qué características debería incluir para tener éxito
+
+
+
+
+
+
