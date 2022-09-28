@@ -19,7 +19,6 @@ motor_audio.setProperty('rate', 90) #con esto podemos cambiar la velocidad a la 
 # volume = engine.getProperty('volume')   #getting to know current volume level (min=0 and max=1)
 # print (volume)                          #printing current volume level
 # engine.setProperty('volume',1.0)    # setting up volume level  between 0 and 1
-
 voz_motor = motor_audio.getProperty('voices')
 
 motor_audio.setProperty('voice', 'spanish')
