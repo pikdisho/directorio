@@ -1,6 +1,3 @@
-from asyncio import gather
-from telnetlib import GA
-
 
 class Gato():
     def __init__(self, nombredelgato, edaddelgato, dueniodelgato):
