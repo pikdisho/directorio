@@ -1,5 +1,7 @@
 import tkinter
 from PIL import ImageTk, Image
+import functions
+timer_refresco=1000
 
 class preferences():    
     def __init__(self):
@@ -28,6 +30,23 @@ class establecer_preferencias_ventana():
 
 main_window = tkinter.Tk()
 establecer_preferencias = establecer_preferencias_ventana(main_window)
+
+frame_bienvenido = tkinter.Frame(main_window, width=ancho, height=int(alto*0.15))
+frame_bienvenido.config(bg='#745fab')
+frame_bienvenido.pack()
+
+def refrescar_reloj():
+    print('refrescando toy')
+    hora.set(functions.hora())
+    main_window.after(timer_refresco, refrescar_reloj)  
+    
+hora = tkinter.StringVar(frame_bienvenido, value=functions.hora())
+
+hora_label = tkinter.Label(frame_bienvenido, textvariable=hora, font=f"Consolas 60")
+refrescar_reloj()
+hora_label.pack(side=tkinter.LEFT)
+
+
 main_window.mainloop()
 
 
