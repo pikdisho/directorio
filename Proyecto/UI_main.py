@@ -19,7 +19,7 @@ class preferences():
 user_preferences = preferences()
 ancho, alto = user_preferences.get_ancho_alto()
 
-class new_window():
+class establecer_preferencias_ventana():
     def __init__(self, ventana_a_crear):
         ventana_a_crear.geometry(user_preferences.get_resolucion())
         ventana_a_crear.title('pikWidget')
@@ -27,5 +27,7 @@ class new_window():
         ventana_a_crear.iconbitmap('wm', r'Proyecto\media\favicon.ico')
 
 main_window = tkinter.Tk()
-establecer_preferencias = new_window(main_window)
+establecer_preferencias = establecer_preferencias_ventana(main_window)
 main_window.mainloop()
+
+
