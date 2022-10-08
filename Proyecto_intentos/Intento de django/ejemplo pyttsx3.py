@@ -1,8 +1,6 @@
 import pyttsx3
 motor_audio = pyttsx3.init() #creamos el objeto para programarlo
 
-
-
 # """ RATE"""
 # rate = engine.getProperty('rate')   # getting details of current speaking rate
 # print (rate)                        #printing current voice rate
@@ -24,6 +22,6 @@ voz_motor = motor_audio.getProperty('voices')
 motor_audio.setProperty('voice', 'spanish')
 motor_audio.setProperty('voice', voz_motor[0].id)
 
-motor_audio.say('Hola como estas mi nombre es Priscila y tengo hambre quiero licuado')
+motor_audio.say('koreano se la come a sanchez')
 motor_audio.runAndWait()
 motor_audio.stop()

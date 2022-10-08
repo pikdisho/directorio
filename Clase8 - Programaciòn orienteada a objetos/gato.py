@@ -5,7 +5,7 @@ class Gato():
         self.edad=edaddelgato
         self.duenio=dueniodelgato
         self.niveldecarinio=0
-        
+
     def presentaciondelgato(self):
         print('Hola, soy un gato llamado', self.nombre, 'tengo', self.edad, 'años y mi dueño es', self.duenio)
 
@@ -36,4 +36,6 @@ pepe.acariciar()
 pepe.acariciar()
 
 pepe.mequieren()
+
+print(pepe.__str__)
 

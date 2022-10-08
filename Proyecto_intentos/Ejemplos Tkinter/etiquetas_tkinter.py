@@ -4,7 +4,7 @@ interfaz = tkinter.Tk()
 interfaz.geometry('720x360')
 
 etiqueta1 = tkinter.Label(interfaz, text= 'Olaaaa gente', bg='GREEN')
-etiqueta1.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=True) # FILL ES PARA RELLENAR, PUEDE SER X, Y O BOTH PARA RELLENAR TODO EL WIDGET
+etiqueta1.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=False) # FILL ES PARA RELLENAR, PUEDE SER X, Y O BOTH PARA RELLENAR TODO EL WIDGET
 
 etiqueta2 = tkinter.Label(interfaz, text= 'Estoy abajo genteeeeeeeeeee')
 etiqueta2.pack(side=tkinter.BOTTOM) #RIGHT, LEFT, ETC
