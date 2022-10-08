@@ -41,8 +41,8 @@ import time
 
 # sumaparapromedio = 0
 
-# for notes in listadenotas:
-#     sumaparapromedio += notes
+for notes in listadenotas:
+    sumaparapromedio += notes
 
 # promedio = (sumaparapromedio/len(listadenotas))
 # print("promedio: ",promedio)
