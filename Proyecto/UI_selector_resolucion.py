@@ -1,9 +1,10 @@
 import tkinter
 
 selector = tkinter.Tk()
-selector.title('Pikwidget')
+selector.title('pikWidget')
 selector.geometry('300x60')
 selector.wm_resizable(0,0)
+selector.iconbitmap('wm', r'Proyecto\media\favicon.ico')
 
 guardar_resolucion = open(r'Proyecto\preferences\resolucion_usuario.txt', 'w')
 
@@ -32,4 +33,3 @@ boton720 = tkinter.Button(selector, text='1280x720', overrelief="flat", command=
 boton720.grid(row=1, column=2)
 
 selector.mainloop()
-    

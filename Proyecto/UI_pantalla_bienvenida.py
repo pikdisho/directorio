@@ -10,9 +10,9 @@ alto = int(resolucion[5:9])
 
 welcome = tkinter.Tk() #VENTANA PRINCIPAL
 welcome.geometry(resolucion)
-welcome.title('Pikwidget')
+welcome.title('pikWidget')
 welcome.resizable(0,0)
-# welcome.iconbitmap('wm', 'Proyecto\media\LOGO.png')
+welcome.iconbitmap('wm', r'Proyecto\media\favicon.ico')
 
 frameizquierda = tkinter.Frame(welcome, bg='blue')
 frameizquierda.config(width=(ancho*0.66), height=(alto))
