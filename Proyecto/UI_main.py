@@ -28,6 +28,6 @@ class establecer_preferencias_ventana():
 
 main_window = tkinter.Tk()
 establecer_preferencias = establecer_preferencias_ventana(main_window)
-main_window.mainloop()
+main_window.mainloop() 
 
 
