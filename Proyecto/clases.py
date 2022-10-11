@@ -24,5 +24,5 @@ class ConfigurarFrame:
             resolucion = archivo_resolucion.readline()
         ancho = int(resolucion[0:4])
         alto = int(resolucion[5:9])
-        frame.config(width=porcentajealto/100*ancho, height=porcentajebajo/100*alto)
+        frame.config(width=int(porcentajealto/100*ancho), height=int(porcentajebajo/100*alto))
 
