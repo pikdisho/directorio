@@ -26,3 +26,7 @@ class ConfigurarFrame:
         alto = int(resolucion[5:9])
         frame.config(width=int(porcentajealto/100*ancho), height=int(porcentajebajo/100*alto))
 
+class ConfigurarColorAcentuacion:
+    def __init__(self, objeto, colordelobjeto):
+        objeto.config(bg=colordelobjeto)
+
