@@ -36,6 +36,7 @@ horatk = tkinter.StringVar(main_window, value=hora_sola())
 label_bg = tkinter.Label(frame_background)
 label_bg.place(x=-1, y=0)
 
+
 def background_adaptable():
     global color_adaptable
     if (int(horatk.get())>=6 and int(horatk.get())<13):
@@ -69,6 +70,12 @@ label_reloj.place(x=40, y=30)
 
 # ----------------------------------------------------------------------------------
 
+frame_reloj = tkinter.Frame(frame_top)
+configurar_frame_reloj = ConfigurarFrame(frame_reloj, 25,20)
+# frame_reloj.place(x=100,y=20)
+
+# ----------------------------------------------------------------------------------
+
 localidad_clima, tiempo_clima, info_clima, clima_clima = weather(ciudad_guardada)
 print(localidad_clima)
 
@@ -81,8 +88,8 @@ def refrescar_reloj():
 
 def refrescar_bg():
     horatk.set(hora_sola())
-    frame_background.after(60000, refrescar_bg)
-    frame_background.after(60000, background_adaptable)
+    frame_background.after(1000, refrescar_bg)
+    frame_background.after(1000, background_adaptable)
 #---------------------------------------------------------------------------------
 
 refrescar_reloj()

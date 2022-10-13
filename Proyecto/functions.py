@@ -1,8 +1,9 @@
 from datetime import date, time, datetime
+import tkinter
 def hora_completa():
-    return datetime.now().strftime('%H:%M:%S')
+    return datetime.now().strftime('%H:%M')
 def hora_sola():
-    return (int(datetime.now().strftime('%H')))
+    return (int(datetime.now().strftime('%S')))
 def segundero():
     return (int(datetime.now().strftime('%S')))
 
@@ -20,9 +21,14 @@ import requests
 headers = {
 	'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
 
-with open('preferences\ciudad_usuario.txt', 'r') as archivo_ciudad:
+def definir_ubicacion(introducido):
+    with open(r'preferences\ciudad_usuario.txt','w') as guardar_ciudad: guardar_ciudad.write(introducido)
+
+with open(r'preferences\ciudad_usuario.txt', 'r') as archivo_ciudad:
     ciudad_guardada = archivo_ciudad.readline()
 ciudad_guardada = ciudad_guardada+" clima"
+
+
 
 def weather(ciudad):
 	ciudad = ciudad.replace(" ", "+")
@@ -34,6 +40,4 @@ def weather(ciudad):
 	time = soup.select('#wob_dts')[0].getText().strip()
 	info = soup.select('#wob_dc')[0].getText().strip()
 	weather = soup.select('#wob_tm')[0].getText().strip()
-	print(location, time, info, weather+"°C")
-	return(location, time, info, weather+"°C")
-
+	return(location, time, info, weather+"°")

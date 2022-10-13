@@ -30,3 +30,5 @@ class ConfigurarColorAcentuacion:
     def __init__(self, objeto, colordelobjeto):
         objeto.config(bg=colordelobjeto)
 
+
+
