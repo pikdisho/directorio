@@ -3,7 +3,7 @@ import tkinter
 def hora_completa():
     return datetime.now().strftime('%H:%M')
 def hora_sola():
-    return (int(datetime.now().strftime('%S')))
+    return (int(datetime.now().strftime('%H')))
 def segundero():
     return (int(datetime.now().strftime('%S')))
 

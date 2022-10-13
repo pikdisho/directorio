@@ -42,8 +42,6 @@ elif ancho == 1280:
 
 # --------------------------------------------------------------------------------
 
-# ---------------------------------------------------------------------------------
-
 frame_background = tkinter.Frame(main_window)
 label_bg = tkinter.Label(frame_background)
 
@@ -61,9 +59,8 @@ frame_clima = tkinter.Frame(frame_top, bg='white')
 label_fondo_clima = tkinter.Label(frame_clima)
 
 variable_ciudad_guardada = tkinter.StringVar(main_window, value=ciudad_guardada)
-print(variable_ciudad_guardada.get())
 
-localidad_clima, tiempo_clima, info_clima, clima_grados = weather(variable_ciudad_guardada.get())
+localidad_clima, tiempo_clima, info_clima, clima_grados = 'null', 'null', 'null', 'null'
 
 variable_grados = tkinter.StringVar(frame_clima, value=clima_grados)
 variable_info = tkinter.StringVar(frame_clima, value=info_clima)
@@ -97,6 +94,7 @@ def destruir_label_nuevo():
     refrescar_clima()
 
 # ---------------------------------------------------------------------------------
+
 configurar_frame_background = ConfigurarFrame(frame_background, 100, 40)
 frame_background.config(bg='#34304d')
 frame_background.place(x=0, y=0)
@@ -194,7 +192,6 @@ label_fondo_reloj.pack()
 
 # ----------------------------------------------------------------------------------
 
-
 # frame_reloj.place(x=int(ancho*0.027),y=int(alto*0.02))
 configurar_frame_clima = ConfigurarFrame(frame_clima, 25,15)
 frame_clima.place(x=int(ancho*0.597),y=int(alto*0.02))
@@ -211,18 +208,16 @@ boton_configurar_clima.place(x=int(ancho*0.23), y=int(alto*0.06))
 
 #----------------------------------------------------------------------
 
-
-
 def refrescar_clima():
     with open(r'preferences\ciudad_usuario.txt', 'r') as archivo_ciudad:
         ciudad_guardada = archivo_ciudad.readline()
         ciudad_guardada = ciudad_guardada+" clima"
     variable_ciudad_guardada.set(ciudad_guardada)
-    print('Refrescando clima de', variable_ciudad_guardada.get())
+    print('Refrescando clima...')
     localidad_clima, tiempo_clima, info_clima, clima_grados = weather(variable_ciudad_guardada.get())
     variable_grados.set(clima_grados)
     variable_info.set(info_clima)
-    variable_hora.set(tiempo_clima)
+    variable_tiempo.set(tiempo_clima)
     variable_localidad.set(localidad_clima)
     frame_top.after(600000, refrescar_clima)
 
