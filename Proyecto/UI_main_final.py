@@ -1,7 +1,14 @@
 import tkinter
+from tkinter import messagebox
 from PIL import ImageTk, Image
 from functions import *
 from clases import *
+# from datetime import date, datetime
+import datetime
+
+obtener_fecha = datetime.datetime.today()
+
+fecha = obtener_fecha.strftime('%d/%m/%Y')
 
 user_preferences = import_user_data()
 ancho, alto = user_preferences.get_ancho_alto()
@@ -25,7 +32,10 @@ if ancho == 1920:
     fuente_clima_info = 'Arial 18 '
     fuente_clima_tiempo = 'Arial 16 '
     fuente_clima_localidad = 'Arial 18 bold'
-    fuente_tarea = 'Arial 18 bold'
+    fuente_tarea = 'Arial 21 bold'
+    fuente_bienvenida = 'Arial 20 bold'
+    fuente_flechas = 'Arial 28 bold'
+
 elif ancho == 1366:
     print('La resolucion elegida es: 1366X768')
     fuente_reloj = 'Arial 49 bold'
@@ -34,6 +44,8 @@ elif ancho == 1366:
     fuente_clima_tiempo = 'Arial 10 '
     fuente_clima_localidad = 'Arial 15 bold'
     fuente_tarea = 'Arial 15 bold'
+    fuente_bienvenida = 'Arial 17 bold'
+    fuente_flechas = 'Arial 23 bold'
 elif ancho == 1280:
     print('La resolucion elegida es: 1280X720')
     fuente_reloj = 'Arial 47 bold'
@@ -42,6 +54,8 @@ elif ancho == 1280:
     fuente_clima_tiempo = 'Arial 11'
     fuente_clima_localidad = 'Arial 14 bold'
     fuente_tarea = 'Arial 13 bold'
+    fuente_bienvenida = 'Arial 15 bold'
+    fuente_flechas = 'Arial 20 bold'
 
 # --------------------------------------------------------------------------------
 
@@ -84,6 +98,19 @@ frame_top.lower(frame_introducir_nombreciudad)
 label_introducir_ciudad = tkinter.Label(frame_introducir_nombreciudad, text='Introduce tu ciudad para configurar el clima:', font=fuente_clima_info, fg='white', bg='#545464')
 entry_ciudad = tkinter.Entry(frame_introducir_nombreciudad, justify=tkinter.CENTER, font=fuente_clima_info, relief='solid')
 boton_aceptar_ciudad = tkinter.Button(frame_introducir_nombreciudad, text='CONFIRMAR Y GUARDAR', font=fuente_clima_tiempo, fg='white', overrelief='flat', relief='raised', bg='#545464', command=lambda:destruir_label_nuevo())
+
+lista_meses = [0, 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+
+mes_actual = int(obtener_fecha.strftime('%m'))
+anio_actual = int(obtener_fecha.strftime('%Y'))
+mes_string = lista_meses[mes_actual] + ' '+ str(anio_actual) 
+
+frame_mes = tkinter.Frame(frame_top, bg='#e8e8e8')
+mes_variable = tkinter.StringVar(frame_mes, value=mes_string)
+label_mes_pantalla = tkinter.Label(frame_mes, textvariable=mes_variable, font=fuente_bienvenida, fg='white')
+boton_mes_izquierda = tkinter.Button(frame_mes, text='←', font=fuente_flechas, fg='white', overrelief='flat', relief='raised', command=lambda: cambiar_mes('Izquierda'))
+boton_mes_derecha = tkinter.Button(frame_mes, text='→', font=fuente_flechas, fg='white', overrelief='flat', relief='raised', command=lambda: cambiar_mes('Derecha'))
+
 
 def label_nuevo():
     frame_introducir_nombreciudad.place(x=int(ancho/3.5), y=int(alto/40))
@@ -148,6 +175,9 @@ def background_adaptable():
         clima_tiempo_label.config(bg=color_adaptable)
         clima_localidad_label.config(bg=color_adaptable)
         boton_configurar_clima.config(bg=color_adaptable)
+        label_mes_pantalla.config(bg=color_adaptable)
+        boton_mes_izquierda.config(bg=color_adaptable)
+        boton_mes_derecha.config(bg=color_adaptable)
 
     elif (int(horatk.get())>=13 and int(horatk.get())<20):
         color_adaptable = '#d2663a'
@@ -161,6 +191,9 @@ def background_adaptable():
         clima_tiempo_label.config(bg=color_adaptable)
         clima_localidad_label.config(bg=color_adaptable)
         boton_configurar_clima.config(bg=color_adaptable)
+        label_mes_pantalla.config(bg=color_adaptable)
+        boton_mes_izquierda.config(bg=color_adaptable)
+        boton_mes_derecha.config(bg=color_adaptable)
 
     elif (int(horatk.get())>=20 and int(horatk.get())<60) or (int(horatk.get())>=0 and int(horatk.get())<6):
         color_adaptable = '#3c3c5c'
@@ -174,6 +207,9 @@ def background_adaptable():
         clima_tiempo_label.config(bg=color_adaptable)
         clima_localidad_label.config(bg=color_adaptable)
         boton_configurar_clima.config(bg=color_adaptable)
+        label_mes_pantalla.config(bg=color_adaptable)
+        boton_mes_izquierda.config(bg=color_adaptable)
+        boton_mes_derecha.config(bg=color_adaptable)
 
 background_adaptable()
 # ---------------------------------------------------------------------------------
@@ -195,19 +231,18 @@ label_fondo_reloj.pack()
 
 # ----------------------------------------------------------------------------------
 
-# frame_reloj.place(x=int(ancho*0.027),y=int(alto*0.02))
 configurar_frame_clima = ConfigurarFrame(frame_clima, 25,15)
 frame_clima.place(x=int(ancho*0.597),y=int(alto*0.02))
 label_fondo_clima.pack()
 
 clima_grados_label.lift(label_fondo_clima)
-#
+
 clima_grados_label.place(x=int(ancho*0.015), y=int(alto*0.011))
 clima_localidad_label.place(x=int(ancho*0.1), y=int(alto*0.021))
 clima_tiempo_label.place(x=int(ancho*0.1), y=int(alto*0.056))
 clima_info_label.place(x=int(ancho*0.015), y=int(alto*0.112))
 
-boton_configurar_clima.place(x=int(ancho*0.23), y=int(alto*0.06))
+boton_configurar_clima.place(x=int(ancho*0.228), y=int(alto*0.06))
 
 #----------------------------------------------------------------------
 
@@ -221,8 +256,9 @@ def generar_ventana_agregar_tarea():
     ventana_agregar = tkinter.Toplevel()
     ventana_agregar.geometry(resolucion_ventana_agregar+posicionx+posiciony)
     ventana_agregar.title('Agregando tarea...')
+    ventana_agregar.focus()
 
-    label_ingresar_fecha = tkinter.Label(ventana_agregar, text='Ingrese la fecha (dd/mm/yyyy): ', font=fuente_tarea)
+    label_ingresar_fecha = tkinter.Label(ventana_agregar, text='Ingrese la fecha (dd-mm-yyyy): ', font=fuente_tarea)
     label_ingresar_nombre = tkinter.Label(ventana_agregar, text='Ingrese el nombre: ', font=fuente_tarea)
     label_ingresar_descripcion = tkinter.Label(ventana_agregar, text='Agregue una breve descripción: ', font=fuente_tarea)
     entry_ingresar_fecha = tkinter.Entry(ventana_agregar, justify=tkinter.CENTER, font=fuente_tarea)
@@ -237,21 +273,55 @@ def generar_ventana_agregar_tarea():
     entry_ingresar_descripcion.grid(row=3, column=2, pady='5')
 
 # ------------------------------------------------------------------------------------------------
-    from datetime import datetime
+    import datetime
 
     def guardar_tarea():
         datos_tarea = []
         datos_tarea.append(entry_ingresar_fecha.get()), datos_tarea.append(entry_ingresar_nombre.get()), datos_tarea.append(entry_ingresar_descripcion.get())
-        validar_fecha = datos_tarea[0]
-        format = "%d/%m/%Y"
-        
-        
-        ventana_agregar.destroy()
+        validar_fecha = str(datos_tarea[0])
+        fecha_validada = ''
+        fecha_mayor_validada = ''
+        nombre_validado = ''
+        descripcion_validada = ''
+        format = "%d-%m-%Y"
+        try: 
+            bool(datetime.datetime.strptime(validar_fecha, format))
+            fecha_validada = True
+        except ValueError:
+            messagebox.showerror('Error de formato', 'El formato de la fecha no es valido')
+            ventana_agregar.focus()
         datos_listos_guardar = '|'
         datos_listos_guardar = datos_listos_guardar.join(datos_tarea)
-        with open (r'preferences\tareas_usuario.txt', 'a') as archivo_datos:
-            archivo_datos.write(datos_listos_guardar)
-            archivo_datos.write('\n')
+
+        if fecha_validada:
+            dia_validar = (int(datos_tarea[0][0:2])+1)
+            mes_validar = int(datos_tarea[0][3:5])
+            anio_validar = int(datos_tarea[0][6:10])
+            fecha_datetime = datetime.datetime(anio_validar, mes_validar, dia_validar)
+            if fecha_datetime>obtener_fecha:
+                fecha_mayor_validada = True
+            else:
+                messagebox.showerror('Error de formato', '¡La fecha de la tarea ya paso!')
+                ventana_agregar.focus()
+
+        if len(str(datos_tarea[1])) > 1:
+            nombre_validado = True
+        else:
+            messagebox.showerror('Error de formato', '¡El nombre de la tarea es muy corto!')
+            ventana_agregar.focus()
+
+        if len(str(datos_tarea[2])) > 1:
+            descripcion_validada = True
+        else:
+            messagebox.showerror('Error de formato', '¡La descripcion de la tarea es muy corta!')
+            ventana_agregar.focus()
+
+        if fecha_validada == True and nombre_validado == True and descripcion_validada == True and fecha_mayor_validada == True:
+            with open (r'preferences\tareas_usuario.txt', 'a') as archivo_datos:
+                archivo_datos.write(datos_listos_guardar)
+                archivo_datos.write('\n')
+            ventana_agregar.destroy()
+            main_window.focus()
 
     boton_cancelar_tarea = tkinter.Button(ventana_agregar, text= 'CANCELAR', relief='raised', overrelief='flat', font=fuente_tarea, command=lambda: ventana_agregar.destroy())
     boton_agregar_tarea = tkinter.Button(ventana_agregar, text= 'CONFIRMAR', relief='raised', overrelief='flat', font=fuente_tarea, fg='white', bg=color_adaptable, command=lambda:guardar_tarea())
@@ -265,12 +335,60 @@ boton_agregar_tarea.place(x=int(ancho*0.71), y=int(alto*0.21))
 
 with open (r'preferences\tareas_usuario.txt', 'r') as archivo_tareas:
     tareas_leidas = [linea.strip() for linea in archivo_tareas]
-    print(tareas_leidas)
 
 tareas_separadas = []
 for item in tareas_leidas:
     string_crudo = item.split("|")
     tareas_separadas.append(string_crudo)
+
+#----------------------------------------------------------------------
+
+nombre_usuario = user_preferences.get_nombre()
+
+saludo = ('Bienvenido/a '+ nombre_usuario + '. La fecha es ' + fecha + '.')
+
+label_bienvenida_tareas = tkinter.Label(frame_top, text=saludo, font=fuente_bienvenida, bg='white')
+label_bienvenida_tareas.place(x=int(ancho*0.03), y=int(alto*0.215))
+
+# frame_mes = tkinter.Frame(frame_top, bg='grey')
+configurar_frame_top = ConfigurarFrame(frame_mes, 82,48)
+frame_mes.place(x=int(ancho*0.028), y=int(alto*0.27))
+
+# lista_meses = [0, 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+mes_obtenido = int(obtener_fecha.strftime('%m'))
+mes_actual = int(mes_obtenido)
+anio_actual = int(obtener_fecha.strftime('%Y'))
+mes_string = lista_meses[mes_actual] + ' '+ str(anio_actual)
+
+mes_variable_int = tkinter.IntVar(value=mes_actual)
+anio_variable_int = tkinter.IntVar(value=anio_actual)
+# mes_variable = tkinter.StringVar(frame_mes, value=mes_string)
+
+label_mes_pantalla = tkinter.Label(frame_mes, textvariable=mes_variable, font=fuente_bienvenida, fg='white')
+label_mes_pantalla.place(x=int(ancho*0.352), y=int(alto*0.02))
+
+boton_mes_derecha.place(x=int(ancho*0.768), y=int(alto*0.2))
+boton_mes_izquierda.place(x=int(ancho*0.008), y=int(alto*0.2))
+
+def cambiar_mes(direccion):
+    if direccion == 'Izquierda':
+        mes_variable_int.set(mes_variable_int.get()-1)
+        if (mes_variable_int.get()<1):
+            mes_variable_int.set(12)
+            anio_variable_int.set(anio_variable_int.get()-1)
+        mes_string = lista_meses[mes_variable_int.get()] + ' '+ str(anio_variable_int.get())
+        mes_variable.set(mes_string)
+        
+    elif direccion == 'Derecha':
+        mes_variable_int.set(mes_variable_int.get()+1)
+        if (mes_variable_int.get()>12):
+            mes_variable_int.set(1)
+            anio_variable_int.set(anio_variable_int.get()+1)
+        mes_string = lista_meses[mes_variable_int.get()] + ' ' + str(anio_variable_int.get())
+        mes_variable.set(mes_string)
+        
+print(mes_variable_int.get())
+print(tareas_separadas)
 
 
 #----------------------------------------------------------------------

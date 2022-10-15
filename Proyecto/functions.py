@@ -1,11 +1,11 @@
-from datetime import date, time, datetime
+import datetime
 import tkinter
 def hora_completa():
-    return datetime.now().strftime('%H:%M')
+    return datetime.datetime.now().strftime('%H:%M')
 def hora_sola():
-    return (int(datetime.now().strftime('%H')))
+    return (int(datetime.datetime.now().strftime('%H')))
 def segundero():
-    return (int(datetime.now().strftime('%S')))
+    return (int(datetime.datetime.now().strftime('%S')))
 
 hora_tiempo_del_dia = hora_sola()
 def tiempo_del_dia():
@@ -27,8 +27,6 @@ def definir_ubicacion(introducido):
 with open(r'preferences\ciudad_usuario.txt', 'r') as archivo_ciudad:
     ciudad_guardada = archivo_ciudad.readline()
 ciudad_guardada = ciudad_guardada+" clima"
-
-
 
 def weather(ciudad):
 	ciudad = ciudad.replace(" ", "+")
