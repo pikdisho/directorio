@@ -155,6 +155,10 @@ label_redondeado_noche = Image.open(r'media\label_noche.gif')
 label_redondeado_noche = label_redondeado_noche.resize((int(ancho*0.25), int(alto*0.15)), Image.Resampling.LANCZOS)
 colocar_label_noche = ImageTk.PhotoImage(label_redondeado_noche)
 
+imagen_gatito = Image.open(r'media\cartel_mes_vacio.gif')
+imagen_gatito = imagen_gatito.resize((int(ancho*0.4), int(alto*0.3)), Image.Resampling.LANCZOS)
+cartel_gatito = ImageTk.PhotoImage(imagen_gatito)
+
 label_bg.place(x=-1, y=0)
 
 # COLOR DIA = #6c6ca3
@@ -386,9 +390,15 @@ def cambiar_mes(direccion):
             anio_variable_int.set(anio_variable_int.get()+1)
         mes_string = lista_meses[mes_variable_int.get()] + ' ' + str(anio_variable_int.get())
         mes_variable.set(mes_string)
-        
+
 print(mes_variable_int.get())
 print(tareas_separadas)
+
+gatito_label = tkinter.Label(frame_mes, image=cartel_gatito, bg='#e9e9e9')
+gatito_label.place(x=int(ancho*0.2), y=int(alto*0.1))
+
+# def tareas_del_mes():
+
 
 
 #----------------------------------------------------------------------
