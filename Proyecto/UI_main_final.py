@@ -25,6 +25,7 @@ if ancho == 1920:
     fuente_clima_info = 'Arial 18 '
     fuente_clima_tiempo = 'Arial 16 '
     fuente_clima_localidad = 'Arial 18 bold'
+    fuente_tarea = 'Arial 18 bold'
 elif ancho == 1366:
     print('La resolucion elegida es: 1366X768')
     fuente_reloj = 'Arial 49 bold'
@@ -32,6 +33,7 @@ elif ancho == 1366:
     fuente_clima_info = 'Arial 12'
     fuente_clima_tiempo = 'Arial 10 '
     fuente_clima_localidad = 'Arial 15 bold'
+    fuente_tarea = 'Arial 15 bold'
 elif ancho == 1280:
     print('La resolucion elegida es: 1280X720')
     fuente_reloj = 'Arial 47 bold'
@@ -39,6 +41,7 @@ elif ancho == 1280:
     fuente_clima_info = 'Arial 12'
     fuente_clima_tiempo = 'Arial 11'
     fuente_clima_localidad = 'Arial 14 bold'
+    fuente_tarea = 'Arial 13 bold'
 
 # --------------------------------------------------------------------------------
 
@@ -205,6 +208,70 @@ clima_tiempo_label.place(x=int(ancho*0.1), y=int(alto*0.056))
 clima_info_label.place(x=int(ancho*0.015), y=int(alto*0.112))
 
 boton_configurar_clima.place(x=int(ancho*0.23), y=int(alto*0.06))
+
+#----------------------------------------------------------------------
+
+def generar_ventana_agregar_tarea():
+    ancho_ventana_agregar = int(ancho/2.4)
+    alto_ventana_agregar = int(alto/4)
+    resolucion_ventana_agregar = (str(ancho_ventana_agregar) + 'x' + str(alto_ventana_agregar))
+    posicionx = '+'+str(int(ancho/2))
+    posiciony = '+'+str(int(alto/2))
+
+    ventana_agregar = tkinter.Toplevel()
+    ventana_agregar.geometry(resolucion_ventana_agregar+posicionx+posiciony)
+    ventana_agregar.title('Agregando tarea...')
+
+    label_ingresar_fecha = tkinter.Label(ventana_agregar, text='Ingrese la fecha (dd/mm/yyyy): ', font=fuente_tarea)
+    label_ingresar_nombre = tkinter.Label(ventana_agregar, text='Ingrese el nombre: ', font=fuente_tarea)
+    label_ingresar_descripcion = tkinter.Label(ventana_agregar, text='Agregue una breve descripción: ', font=fuente_tarea)
+    entry_ingresar_fecha = tkinter.Entry(ventana_agregar, justify=tkinter.CENTER, font=fuente_tarea)
+    entry_ingresar_nombre = tkinter.Entry(ventana_agregar, justify=tkinter.CENTER, font=fuente_tarea)
+    entry_ingresar_descripcion = tkinter.Entry(ventana_agregar, justify=tkinter.CENTER, font=fuente_tarea)
+
+    label_ingresar_fecha.grid(row=1, column=1, pady='10', padx='10')
+    label_ingresar_nombre.grid(row=2, column=1, pady='5', padx='10')
+    label_ingresar_descripcion.grid(row=3, column=1, pady='5', padx='10')
+    entry_ingresar_fecha.grid(row=1, column=2, pady='10')
+    entry_ingresar_nombre.grid(row=2, column=2, pady='5')
+    entry_ingresar_descripcion.grid(row=3, column=2, pady='5')
+
+# ------------------------------------------------------------------------------------------------
+    from datetime import datetime
+
+    def guardar_tarea():
+        datos_tarea = []
+        datos_tarea.append(entry_ingresar_fecha.get()), datos_tarea.append(entry_ingresar_nombre.get()), datos_tarea.append(entry_ingresar_descripcion.get())
+        validar_fecha = datos_tarea[0]
+        format = "%d/%m/%Y"
+        
+        
+        ventana_agregar.destroy()
+        datos_listos_guardar = '|'
+        datos_listos_guardar = datos_listos_guardar.join(datos_tarea)
+        with open (r'preferences\tareas_usuario.txt', 'a') as archivo_datos:
+            archivo_datos.write(datos_listos_guardar)
+            archivo_datos.write('\n')
+
+    boton_cancelar_tarea = tkinter.Button(ventana_agregar, text= 'CANCELAR', relief='raised', overrelief='flat', font=fuente_tarea, command=lambda: ventana_agregar.destroy())
+    boton_agregar_tarea = tkinter.Button(ventana_agregar, text= 'CONFIRMAR', relief='raised', overrelief='flat', font=fuente_tarea, fg='white', bg=color_adaptable, command=lambda:guardar_tarea())
+    boton_agregar_tarea.grid(row=4, column=1, pady='10')
+    boton_cancelar_tarea.grid(row=4, column=2, pady='10')   
+
+boton_agregar_tarea = tkinter.Button(frame_top, text= 'AGREGAR TAREA', font=fuente_tarea, fg='white', bg=color_adaptable, command=generar_ventana_agregar_tarea)
+boton_agregar_tarea.place(x=int(ancho*0.71), y=int(alto*0.21))
+
+#----------------------------------------------------------------------
+
+with open (r'preferences\tareas_usuario.txt', 'r') as archivo_tareas:
+    tareas_leidas = [linea.strip() for linea in archivo_tareas]
+    print(tareas_leidas)
+
+tareas_separadas = []
+for item in tareas_leidas:
+    string_crudo = item.split("|")
+    tareas_separadas.append(string_crudo)
+
 
 #----------------------------------------------------------------------
 
