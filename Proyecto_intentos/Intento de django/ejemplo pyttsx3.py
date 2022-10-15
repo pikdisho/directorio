@@ -24,4 +24,4 @@ motor_audio.setProperty('voice', voz_motor[0].id)
 
 motor_audio.say('koreano se la come a sanchez')
 motor_audio.runAndWait()
-motor_audio.stop()
+motor_audio.stop() 
