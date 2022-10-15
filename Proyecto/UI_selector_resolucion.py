@@ -4,9 +4,9 @@ selector = tkinter.Tk()
 selector.title('pikWidget')
 selector.geometry('300x60')
 selector.wm_resizable(0,0)
-selector.iconbitmap('wm', r'Proyecto\media\favicon.ico')
+selector.iconbitmap('wm', r'media\favicon.ico')
 
-guardar_resolucion = open(r'Proyecto\preferences\resolucion_usuario.txt', 'w')
+guardar_resolucion = open(r'preferences\resolucion_usuario.txt', 'w')
 
 class resoluciones_posibles():
     def __init__(self):
