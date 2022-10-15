@@ -376,22 +376,22 @@ boton_mes_izquierda.place(x=int(ancho*0.008), y=int(alto*0.2))
 
 def cambiar_mes(direccion):
     if direccion == 'Izquierda':
+        analizar_tareas()
         mes_variable_int.set(mes_variable_int.get()-1)
         if (mes_variable_int.get()<1):
             mes_variable_int.set(12)
             anio_variable_int.set(anio_variable_int.get()-1)
         mes_string = lista_meses[mes_variable_int.get()] + ' '+ str(anio_variable_int.get())
         mes_variable.set(mes_string)
-        analizar_tareas()
-        
+             
     elif direccion == 'Derecha':
+        analizar_tareas()
         mes_variable_int.set(mes_variable_int.get()+1)
         if (mes_variable_int.get()>12):
             mes_variable_int.set(1)
             anio_variable_int.set(anio_variable_int.get()+1)
         mes_string = lista_meses[mes_variable_int.get()] + ' ' + str(anio_variable_int.get())
         mes_variable.set(mes_string)
-        analizar_tareas()
 
 gatito_label = tkinter.Label(frame_mes, image=cartel_gatito, bg='#e9e9e9')
 
@@ -445,7 +445,6 @@ def analizar_tareas():
             label_tarea5.grid(row=4,column=0, padx=10, pady=10)
         except:
             break
-analizar_tareas()
 
 
 
