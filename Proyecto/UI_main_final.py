@@ -376,14 +376,16 @@ boton_mes_izquierda.place(x=int(ancho*0.008), y=int(alto*0.2))
 
 def cambiar_mes(direccion):
     if direccion == 'Izquierda':
+        analizar_tareas()
         mes_variable_int.set(mes_variable_int.get()-1)
         if (mes_variable_int.get()<1):
             mes_variable_int.set(12)
             anio_variable_int.set(anio_variable_int.get()-1)
         mes_string = lista_meses[mes_variable_int.get()] + ' '+ str(anio_variable_int.get())
         mes_variable.set(mes_string)
-        
+             
     elif direccion == 'Derecha':
+        analizar_tareas()
         mes_variable_int.set(mes_variable_int.get()+1)
         if (mes_variable_int.get()>12):
             mes_variable_int.set(1)
@@ -391,13 +393,67 @@ def cambiar_mes(direccion):
         mes_string = lista_meses[mes_variable_int.get()] + ' ' + str(anio_variable_int.get())
         mes_variable.set(mes_string)
 
-print(mes_variable_int.get())
-print(tareas_separadas)
-
 gatito_label = tkinter.Label(frame_mes, image=cartel_gatito, bg='#e9e9e9')
-gatito_label.place(x=int(ancho*0.2), y=int(alto*0.1))
 
-# def tareas_del_mes():
+tareas_mensuales = []
+
+frame_contenido_tareas = tkinter.Frame(frame_mes,bg='#e9e9e9')
+configurar_frame_tareas = ConfigurarFrame(frame_contenido_tareas, 70,45)
+frame_contenido_tareas.place(x=int(ancho*0.06), y=int(alto*0.08))
+
+label_tarea1 = tkinter.Label(frame_contenido_tareas, bg='white')
+label_tarea2 = tkinter.Label(frame_contenido_tareas, bg='white')
+label_tarea3 = tkinter.Label(frame_contenido_tareas, bg='white')
+label_tarea4 = tkinter.Label(frame_contenido_tareas, bg='white')
+label_tarea5 = tkinter.Label(frame_contenido_tareas, bg='white')
+
+# def analizar_tareas():
+#     buscar_mes = '-'+ str(mes_variable_int.get())+'-'
+#     for i in range (len(tareas_separadas)):
+#         if (buscar_mes in tareas_separadas[i][0]):
+#             print('si hay')
+#             tareas_mensuales.append(tareas_separadas[i])    
+#         if (len(tareas_mensuales)) == 0:
+#             gatito_label.place(x=int(ancho*0.2), y=int(alto*0.1))
+# analizar_tareas()
+
+def analizar_tareas():
+    tareas_mensuales = []
+    label_tarea1.config(text='')
+    label_tarea2.config(text='')
+    label_tarea3.config(text='')
+    label_tarea4.config(text='')
+    label_tarea5.config(text='')
+    buscar_mes = '-'+ str(mes_variable_int.get())+'-'
+    for i in range (len(tareas_separadas)):
+        if (buscar_mes in tareas_separadas[i][0]):
+            tareas_mensuales.append(tareas_separadas[i])  
+        if (len(tareas_mensuales)) == 0:
+            gatito_label.place(x=int(ancho*0.2), y=int(alto*0.1))
+    # for tareas in range (len(tareas_mensuales)):
+    for i in range (len(tareas_mensuales)+1):
+        try:
+            label_tarea1.config(text= (('→  '+str(tareas_mensuales[0]))),font=fuente_tarea)
+            label_tarea1.grid(row=0,column=0, padx=10, pady=10)
+            label_tarea2.config(text= (('→  '+str(tareas_mensuales[1]))),font=fuente_tarea)
+            label_tarea2.grid(row=1,column=0, padx=10, pady=10)
+            label_tarea3.config(text= (('→  '+str(tareas_mensuales[2]))),font=fuente_tarea)
+            label_tarea3.grid(row=2,column=0, padx=10, pady=10)
+            label_tarea4.config(text= (('→  '+str(tareas_mensuales[3]))),font=fuente_tarea)
+            label_tarea4.grid(row=3,column=0, padx=10, pady=10)
+            label_tarea5.config(text= (('→  '+str(tareas_mensuales[4]))),font=fuente_tarea)
+            label_tarea5.grid(row=4,column=0, padx=10, pady=10)
+        except:
+            break
+
+
+
+print(tareas_mensuales)
+    
+
+            
+
+
 
 
 
